@@ -3,6 +3,7 @@ from joblib import load
 import pandas as pd
 import re
 import string
+import ntlk
 from nltk.corpus import stopwords
 
 # Load your logistic regression model and tdidfVectorizer 
