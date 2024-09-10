@@ -9,7 +9,6 @@ from nltk.corpus import stopwords
 lr_loaded = load('logistic_regression_model.joblib')
 tv_loaded = load('tfidfVectorizer.joblib')
 
-nltk.download('stopwords')
 stop_words = set(stopwords.words('english'))
 
 # Create a function to clean text
