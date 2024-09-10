@@ -10,7 +10,7 @@ tv_loaded = load('tfidfVectorizer.joblib')
 
 # Create a function to clean text
 def processWord(script):
-    script = text.lower()  # Lower case 
+    script = script.lower()  # Lower case 
     script = re.sub('\[.*?\]', '', script)  # Remove anything with and within brackets
     script = re.sub('\\W', ' ', script)  # Removes any character not a letter, digit, or underscore
     script = re.sub('https?://\S+|www\.\S+', '', script)  # Removes any links starting with https
