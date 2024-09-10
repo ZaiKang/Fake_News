@@ -3,13 +3,14 @@ from joblib import load
 import pandas as pd
 import re
 import string
-import ntlk
+import nltk
 from nltk.corpus import stopwords
 
 # Load your logistic regression model and tdidfVectorizer 
 lr_loaded = load('logistic_regression_model.joblib')
 tv_loaded = load('tfidfVectorizer.joblib')
 
+nltk.download('stopwords')
 stop_words = set(stopwords.words('english'))
 
 # Create a function to clean text
