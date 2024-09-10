@@ -3,10 +3,14 @@ from joblib import load
 import pandas as pd
 import re
 import string
+from nltk.corpus import stopwords
 
 # Load your logistic regression model and tdidfVectorizer 
 lr_loaded = load('logistic_regression_model.joblib')
 tv_loaded = load('tfidfVectorizer.joblib')
+
+nltk.download('stopwords')
+stop_words = set(stopwords.words('english'))
 
 # Create a function to clean text
 def processWord(script):
@@ -18,6 +22,8 @@ def processWord(script):
     script = re.sub('[%s]' % re.escape(string.punctuation), '', script)  # Removes any string with % in it 
     script = re.sub('\n', '', script)  # Remove new lines
     script = re.sub('\w*\d\w*', '', script)  # Removes any string that contains at least a digit with zero or more characters
+    # Remove stopwords (split the script - > filter out stopwords -> join the words)
+    script = ' '.join([word for word in script.split() if word not in stop_words])  
     return script
 
 # Prediction function 
